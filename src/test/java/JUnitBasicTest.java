@@ -53,7 +53,7 @@ public class JUnitBasicTest {
     }
 
     @Test
-    public void testExceptionJunit4() {
+    public void testExceptionJunit5() {
         Assertions.assertThrows(ArithmeticException.class, () -> {
             int a = 10 / 0;
         });
