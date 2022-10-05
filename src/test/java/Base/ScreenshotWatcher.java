@@ -38,11 +38,11 @@ public class ScreenshotWatcher implements AfterTestExecutionCallback, TestWatche
                     + extensionContext.getRequiredTestMethod().getName()
                     + LocalDateTime.now().format(DateTimeFormatter.ofPattern("-yyMMdd-HHmmss"));
 
-            captureScreenshot(driver, baseFileName);
+            captureScreenshot(driver, path, baseFileName);
         }
     }
 
-    public void captureScreenshot(WebDriver driver, String fileName) {
+    public static void captureScreenshot(WebDriver driver, String path, String fileName) {
         try {
             new File(path).mkdirs();
             try ( FileOutputStream out = new FileOutputStream(path + File.separator + "screenshot-" + fileName + ".png")) {

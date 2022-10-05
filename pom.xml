@@ -14,8 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <selenium-java.version>4.5.0</selenium-java.version>
-        <junit.jupiter.version>5.6.2</junit.jupiter.version>
-        <cukes.version>7.8.0</cukes.version>
+        <junit.jupiter.version>5.9.1</junit.jupiter.version>
+        <cucumber.version>7.8.1</cucumber.version>
+        <junit.platform.version>1.9.1</junit.platform.version>
     </properties>
 
     <dependencies>
@@ -45,14 +46,35 @@
             <version>2.6</version>
         </dependency>
 
-        <!-- Cucumber depencies-->
+        <!-- Cucumber dependencies-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>${cukes.version}</version>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
 
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
