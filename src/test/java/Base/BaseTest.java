@@ -1,7 +1,9 @@
 package Base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
@@ -19,9 +21,13 @@ public class BaseTest {
 
     public WebDriver driver;
 
+    @BeforeAll
+    static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
-        System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
+        //System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+        //System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
 
         driver = new ChromeDriver();
         ScreenshotWatcher.setDriver(driver);
