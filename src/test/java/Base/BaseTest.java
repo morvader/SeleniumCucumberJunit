@@ -11,10 +11,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @ExtendWith(ScreenshotWatcher.class)
 public class BaseTest {
@@ -29,7 +32,12 @@ public class BaseTest {
         //System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
         //System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
 
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceName", "iPhone 6/7/8");
+        options.setExperimentalOption("mobileEmulation", mobileEmulation);
+        driver = WebDriverManager.chromedriver().capabilities(options).create();
+
         ScreenshotWatcher.setDriver(driver);
 
     }
