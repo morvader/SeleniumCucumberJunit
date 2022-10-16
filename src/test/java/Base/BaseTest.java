@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import java.io.File;
@@ -26,10 +27,10 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
     public void setup() {
-        //System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
-        //System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
 
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setHeadless(true);
+        driver = new ChromeDriver(options);
         ScreenshotWatcher.setDriver(driver);
 
     }
