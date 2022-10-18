@@ -7,9 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePage {
-    private WebDriver driver;
-
+public class HomePage extends BasePage{
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }

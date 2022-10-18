@@ -5,9 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.demoblaze.BlazeCartPage;
 import pages.demoblaze.HomePage;
 import pages.demoblaze.ProductPage;
 import pages.todo.TodoMainPage;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CheckoutTest {
 
@@ -33,9 +36,20 @@ public class CheckoutTest {
 
     @Test
     void comprarPrimerItem() {
-        demoBlazeHomePage
+
+        String elementoAComprarEsperado = "Samsung galaxy s6";
+        int precioEsperado = 360;
+
+        BlazeCartPage blazeCartPage = demoBlazeHomePage
                 .seleccionaProducto(0)
-                .addToCart();
+                .addToCart()
+                .gotoCart();
+
+        String nombreElementoFinal = blazeCartPage.getNombreElementoPosicion(0);
+        int precioTotalFinal = blazeCartPage.getPrecioTotal();
+
+        assertEquals(elementoAComprarEsperado,nombreElementoFinal);
+        assertEquals(precioEsperado,precioTotalFinal);
 
     }
 }

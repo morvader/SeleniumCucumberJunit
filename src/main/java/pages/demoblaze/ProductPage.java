@@ -7,9 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ProductPage {
-    private WebDriver driver;
-
+public class ProductPage extends BasePage {
     public ProductPage(WebDriver driver) {
         this.driver = driver;
     }
