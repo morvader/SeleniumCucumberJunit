@@ -8,6 +8,7 @@ public class BasePage {
     WebDriver driver;
 
     By linkCarrito = By.cssSelector("#cartur");
+    By linkLogin = By.id("login2");
 
     public BlazeCartPage gotoCart(){
 
@@ -15,5 +16,11 @@ public class BasePage {
 
         return new BlazeCartPage(driver);
 
+    }
+
+    public LoginPage gotoLogin(){
+        driver.findElement(linkLogin).click();
+
+        return new LoginPage(driver);
     }
 }
