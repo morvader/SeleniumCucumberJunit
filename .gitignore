@@ -1,5 +1,7 @@
 # Project exclude paths
 /target/
 .idea/
+../.vscode/
 /drivers/
-/screenshot/
+/screenshots/
+.DS_Store
