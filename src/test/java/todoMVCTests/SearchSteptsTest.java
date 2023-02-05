@@ -38,7 +38,7 @@ public class SearchSteptsTest {
     @After
     public void tearDown(Scenario scenario) throws IOException {
         if (scenario.isFailed())
-            captureScreenshot(driver, "./screenshot∫", scenario.getName());
+            captureScreenshot(driver, "./screenshot", scenario.getName());
         driver.quit();
     }
 
