@@ -51,7 +51,7 @@ public class BaseTest {
 
         WebDriverManager wdm = WebDriverManager.chromedriver().capabilities(options);
         wdm.setup();
-        driver = wdm.remoteAddress("http://192.168.0.11:4444").create();
+        driver = wdm.remoteAddress("http://192.168.0.11:4444/wd/hub").create();
         ScreenshotWatcher.setDriver(driver);
     }
 
