@@ -1,6 +1,7 @@
 package games;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,7 +29,19 @@ public class Play1to50 {
             driver.findElement(By.xpath(xpathSelector)).click();
         }
 
-    Thread.sleep(5000);
+        Thread.sleep(2000);
+
+        driver.switchTo().frame("aswift_3");
+        try {
+            driver.switchTo().frame("ad_iframe");
+            driver.findElement(By.id("dismiss-button")).click();
+        } catch (NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.switchTo().frame("aswift_3");
+            driver.findElement(By.id("dismiss-button")).click();
+        }
+
+        System.out.println("resultado: " + driver.findElement(resultsSelector).getText());
 
         driver.quit();
     }
