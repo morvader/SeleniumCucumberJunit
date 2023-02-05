@@ -12,9 +12,14 @@ public class HomePage extends BasePage{
         this.driver = driver;
     }
 
+    private String URL = "https://www.demoblaze.com/";
     By listaTarjetasProducto = By.cssSelector("#tbodyid .card");
     By enlaceDelNombreProducto = By.cssSelector("#tbodyid .card .card-title a");
 
+    public HomePage visit(){
+        driver.get(this.URL);
+        return this;
+    }
     public int getNumeroTotalProductos(){
         return driver.findElements(listaTarjetasProducto).size();
 

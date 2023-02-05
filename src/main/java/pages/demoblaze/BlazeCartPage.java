@@ -38,6 +38,4 @@ public class BlazeCartPage extends BasePage{
         return Integer.parseInt(driver.findElement(totalPrice).getText());
     }
 
-
-
 }

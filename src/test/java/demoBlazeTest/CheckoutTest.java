@@ -1,5 +1,6 @@
 package demoBlazeTest;
 
+import Base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,30 +9,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.demoblaze.BlazeCartPage;
 import pages.demoblaze.HomePage;
 import pages.demoblaze.ProductPage;
-import pages.todo.TodoMainPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CheckoutTest {
-
-    private WebDriver driver;
+public class CheckoutTest extends BaseTest {
 
     HomePage demoBlazeHomePage;
 
     @BeforeEach
     public void prepararEntorno() {
-        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
-
-        driver = new ChromeDriver();
-
+        super.setup();
         demoBlazeHomePage = new HomePage(driver);
+        demoBlazeHomePage.visit();
 
-        driver.get("https://www.demoblaze.com/");
-    }
-
-    @AfterEach
-    void tearDown() {
-        driver.quit();
     }
 
     @Test

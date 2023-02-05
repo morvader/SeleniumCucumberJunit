@@ -1,5 +1,6 @@
 package demoBlazeTest;
 
+import Base.BaseTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,26 +10,18 @@ import pages.demoblaze.HomePage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginTest {
-    private WebDriver driver;
-
+public class LoginTest extends BaseTest {
     HomePage demoBlazeHomePage;
 
     @BeforeEach
     public void prepararEntorno() {
-        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
-
-        driver = new ChromeDriver();
+        super.setup();
 
         demoBlazeHomePage = new HomePage(driver);
 
-        driver.get("https://www.demoblaze.com/");
+      demoBlazeHomePage.visit();
     }
 
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-    }
 
     @Test
     void loginIncorrecto() {
