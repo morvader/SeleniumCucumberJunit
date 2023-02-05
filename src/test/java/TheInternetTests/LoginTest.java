@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginTest extends BaseTestTestTheInternet {
@@ -16,7 +15,7 @@ public class LoginTest extends BaseTestTestTheInternet {
     }
 
     @Test
-    void loginIcorrento() {
+    void loginIncorrecto() {
         By username = By.id("username");
         By password = By.id("password");
         By loginBtn = By.cssSelector("#login button");

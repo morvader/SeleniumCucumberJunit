@@ -34,7 +34,7 @@ public class JUnitBasicTest {
 
     @Test
     public void comprobarInicioFraseTest() {
-        String fraseEntrada = "Estoy atomatizando pruebas";
+        String fraseEntrada = "Estoy automatizando pruebas";
         String inicio = "Estoy";
 
         assertTrue(fraseEntrada.startsWith(inicio));
