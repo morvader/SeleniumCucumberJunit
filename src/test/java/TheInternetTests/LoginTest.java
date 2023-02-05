@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginTest extends BaseTestTestTheInternet {
 
     @Test
-    void loginIcorrento() {
+    void loginIncorrecto() {
         AuthenticationFormPage authenticationFormPage = mainPage.goToAuthenticationFormPage();
         authenticationFormPage.loginIncorrecto("Fran", "fakePass");
         String texto = authenticationFormPage.getMessageText();
