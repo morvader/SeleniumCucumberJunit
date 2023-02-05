@@ -45,13 +45,14 @@
             <version>2.6</version>
         </dependency>
 
-        <!-- Cucumber depencies-->
+        <!-- Cucumber dependencies-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cukes.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
