@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -20,38 +21,41 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
 @ExtendWith(ScreenshotWatcher.class)
 public class BaseTest {
 
     public WebDriver driver;
-
+    public static final String USERNAME = (System.getenv("BROWSERSTACK_USERNAME") != null) ? System.getenv("BROWSERSTACK_USERNAME") : "User";
+    public static final String AUTOMATE_KEY = (System.getenv("BROWSERSTACK_ACCESS_KEY") != null) ? System.getenv("BROWSERSTACK_ACCESS_KEY") : "Pass";
+    // declare remote URL in a variable
+    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
     @BeforeAll
     static void setupClass() {
         //WebDriverManager.chromedriver().setup();
     }
     public void setup()  {
 
-        this.setupWebDriverManager();
-
-//        DesiredCapabilities caps = new DesiredCapabilities();
-//        caps.setBrowserName("chrome");
-//        try {
-//            driver = new RemoteWebDriver(new URL("http://192.168.0.11:4444"), caps);
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        ScreenshotWatcher.setDriver(driver);
+        try {
+            this.setupWebDriverManager();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
-    public void setupWebDriverManager(){
-        ChromeOptions options = new ChromeOptions();
+    public void setupWebDriverManager() throws MalformedURLException {
 
-        WebDriverManager wdm = WebDriverManager.chromedriver().capabilities(options);
-        wdm.setup();
-        driver = wdm.remoteAddress("http://192.168.0.11:4444").create();
+// Add these capabilities to your test script
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("os", "Windows");
+        caps.setCapability("os_version", "10");
+        caps.setCapability("browser", "Chrome");
+        caps.setCapability("browser_version", "latest");
+
+
+        driver = new RemoteWebDriver(new URL(URL), caps);
         ScreenshotWatcher.setDriver(driver);
     }
 
