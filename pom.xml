@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <selenium-java.version>4.5.0</selenium-java.version>
+        <selenium-java.version>4.25.0</selenium-java.version>
         <junit.jupiter.version>5.6.2</junit.jupiter.version>
         <cukes.version>7.8.0</cukes.version>
     </properties>
@@ -33,7 +33,7 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
@@ -42,17 +42,16 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>2.17.0</version>
         </dependency>
 
-        <!-- Cucumber dependencies-->
+        <!-- Cucumber depencies-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cukes.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
