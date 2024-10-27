@@ -29,7 +29,7 @@ public class BaseTest {
     public void setup() {
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         ScreenshotWatcher.setDriver(driver);
 
