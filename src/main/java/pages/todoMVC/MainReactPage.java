@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainReactPage {
     WebDriver driver;
 
-    String URL = "http://todomvc.com/examples/react/";
+    String URL = "http://todomvc.com/examples/react/dist";
 
     By newTodo = By.cssSelector(".new-todo");
     By listItems = By.cssSelector(".todo-list li");
