@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +16,9 @@ public class SeleniumInit {
 
         search_form_input.sendKeys("Selenium");
 
-        driver.findElement(By.id("search_button_homepage")).click();
+        //search_form_input.sendKeys(Keys.ENTER);
+
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         Thread.sleep(5000);
 
