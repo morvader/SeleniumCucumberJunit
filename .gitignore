@@ -3,3 +3,5 @@
 .idea/
 /drivers/
 /screenshot/
+.DS_Store
+.vscode/settings.json
